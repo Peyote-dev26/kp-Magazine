@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Contact | KP MAGAZINES</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar"><div class="container topbar-inner"><div class="brand-block"><span class="brand-mark">KP</span><div><p class="eyebrow">Monthly Journal</p><h1 class="brand-name">MAGAZINES</h1></div></div><nav class="main-nav"><a href="index.html">Home</a><a href="magazine.html">Magazine</a><a href="video.html">Video</a><a href="authors.html">Authors</a><a href="about.html">About</a><a href="contact.html" class="active">Contact</a></nav><div class="header-actions"><a href="login.html" class="btn btn-primary">Login</a></div></div></header>
+      <main class="page-shell">
+        <div class="container auth-layout">
+          <div class="auth-panel glass-panel">
+            <p class="eyebrow accent-text">Get in touch</p>
+            <h2>Contact the editorial desk</h2>
+            <form id="contact-form" class="form-stack">
+              <label>Name<input type="text" id="contact-name" required /></label>
+              <label>Email<input type="email" id="contact-email" required /></label>
+              <label>Message<textarea id="contact-message" rows="5" required></textarea></label>
+              <button class="btn btn-primary" type="submit">Send message</button>
+            </form>
+          </div>
+        </div>
+      </main>
+      <footer class="site-footer"><div class="container footer-grid"><div><div class="brand-block small-brand"><span class="brand-mark">KP</span><div><p class="eyebrow">Monthly Journal</p><h3 class="brand-name">MAGAZINES</h3></div></div></div></div></footer>
+    </div>
+    <script src="./js/api.js"></script>
+    <script>
+      document.getElementById('contact-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        try {
+          await apiRequest('/contact', {
+            method: 'POST',
+            body: {
+              name: document.getElementById('contact-name').value,
+              email: document.getElementById('contact-email').value,
+              message: document.getElementById('contact-message').value,
+            },
+          });
+          showMessage('Your message has been sent.');
+          event.target.reset();
+        } catch (error) {
+          showMessage(error.message, 'error');
+        }
+      });
+    </script>
+  </body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Video | KP MAGAZINES</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">...</header>
+      <main class="page-shell">
+        <section class="container page-header">
+          <p class="eyebrow accent-text">Video</p>
+          <h2>Featured stories in motion</h2>
+        </section>
+        <section class="container video-grid" id="video-list"></section>
+      </main>
+      <footer class="site-footer">...</footer>
+    </div>
+    <script src="./js/api.js"></script>
+    <script>
+      (async function () {
+        const data = await apiRequest('/videos');
+        const list = document.getElementById('video-list');
+        (data.videos || []).forEach((video) => {
+          const card = document.createElement('article');
+          card.className = 'video-card';
+          card.innerHTML = `
+            <img src="${video.thumbnail}" alt="${video.title}" />
+            <div class="card-body">
+              <p class="eyebrow accent-text">${video.category}</p>
+              <h4><a href="video-detail.html?id=${video.id}">${video.title}</a></h4>
+            </div>
+          `;
+          list.appendChild(card);
+        });
+      })();
+    </script>
+  </body>
+</html>

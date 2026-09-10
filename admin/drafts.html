@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Drafts | KP MAGAZINES Admin</title>
+    <link rel="stylesheet" href="../frontend/css/style.css" />
+    <link rel="stylesheet" href="../frontend/css/responsive.css" />
+    <style>
+      body { background: #07111d; }
+      .admin-shell { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+      .admin-sidebar { background: rgba(9, 16, 26, 0.95); border-right: 1px solid rgba(143, 173, 255, 0.18); padding: 1.4rem 1rem; }
+      .nav-link { display: block; padding: 0.75rem 0.8rem; border-radius: 10px; color: var(--muted); margin-bottom: 0.35rem; }
+      .nav-link.active, .nav-link:hover { background: rgba(95, 124, 255, 0.16); color: var(--text); }
+      .admin-main { padding: 2rem; }
+      .story-list { display: grid; gap: 1rem; }
+      .story-card { padding: 1rem; border-radius: 12px; background: rgba(17, 26, 41, 0.78); border: 1px solid var(--line); }
+      @media (max-width: 980px) { .admin-shell { grid-template-columns: 1fr; } .admin-sidebar { border-right: 0; border-bottom: 1px solid var(--line); } }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-block"><span class="brand-mark">KP</span><div><p class="eyebrow">Monthly Journal</p><h3 class="brand-name">MAGAZINES</h3></div></div>
+        </div>
+        <nav>
+          <div class="sidebar-section">
+            <p class="eyebrow accent-text">Dashboard</p>
+            <a class="nav-link" href="index.html">Overview</a>
+            <a class="nav-link" href="articles.html">Articles</a>
+            <a class="nav-link active" href="drafts.html">Drafts</a>
+          </div>
+        </nav>
+      </aside>
+      <main class="admin-main">
+        <div class="section-header">
+          <div><p class="eyebrow accent-text">Content</p><h2>Drafts</h2></div>
+          <a class="btn btn-primary" href="add-article.html">New draft</a>
+        </div>
+        <div id="draft-list" class="story-list"></div>
+      </main>
+    </div>
+    <script src="../frontend/js/api.js"></script>
+    <script>
+      (async function () {
+        const data = await apiRequest('/articles');
+        const list = document.getElementById('draft-list');
+        (data.articles || []).filter((article) => article.status === 'draft').forEach((article) => {
+          const card = document.createElement('div');
+          card.className = 'story-card glass-panel';
+          card.innerHTML = `<h3>${article.title}</h3><p>${article.excerpt || article.subtitle || ''}</p>`;
+          list.appendChild(card);
+        });
+      })();
+    </script>
+  </body>
+</html>

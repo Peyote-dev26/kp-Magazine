@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Authors | KP MAGAZINES</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">...</header>
+      <main class="page-shell">
+        <section class="container page-header">
+          <p class="eyebrow accent-text">Voices</p>
+          <h2>Our contributors</h2>
+        </section>
+        <section class="container story-list" id="author-list"></section>
+      </main>
+      <footer class="site-footer">...</footer>
+    </div>
+    <script src="./js/api.js"></script>
+    <script>
+      (async function () {
+        const data = await apiRequest('/authors');
+        const list = document.getElementById('author-list');
+        (data.authors || []).forEach((author) => {
+          const card = document.createElement('article');
+          card.className = 'story-card glass-panel';
+          card.innerHTML = `
+            <div>
+              <p class="eyebrow accent-text">Author</p>
+              <h4><a href="author.html?id=${author.id}">${author.name}</a></h4>
+              <p>${author.bio}</p>
+            </div>
+          `;
+          list.appendChild(card);
+        });
+      })();
+    </script>
+  </body>
+</html>

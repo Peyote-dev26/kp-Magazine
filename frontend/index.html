@@ -1,0 +1,201 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KP MAGAZINES | Premium Digital Publication</title>
+    <meta name="description" content="KP MAGAZINES is a premium digital publication exploring culture, business, technology, and modern life." />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:wght@500;600;700&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <div class="brand-block">
+            <span class="brand-mark">KP</span>
+            <div>
+              <p class="eyebrow">Monthly Journal</p>
+              <h1 class="brand-name">MAGAZINES</h1>
+            </div>
+          </div>
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html" class="active">Home</a>
+            <a href="magazine.html">Magazine</a>
+            <a href="video.html">Video</a>
+            <a href="authors.html">Authors</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <div class="header-actions">
+            <button class="ghost-button" id="nav-search-trigger">Search</button>
+            <a href="login.html" class="btn btn-primary">Login</a>
+          </div>
+        </div>
+      </header>
+
+      <main>
+        <section class="hero-shell">
+          <div class="container hero-grid">
+            <article class="hero-feature glass-panel">
+              <div class="hero-copy">
+                <p class="eyebrow accent-text">Featured</p>
+                <h2 id="hero-title">Inside the new creative economy</h2>
+                <p id="hero-excerpt">How independent publishers are building sustainable audiences with trust, depth, and culture-first storytelling.</p>
+                <div class="meta-row">
+                  <span id="hero-category">Features</span>
+                  <span id="hero-author">Amina Okafor</span>
+                  <span id="hero-date">Today</span>
+                </div>
+                <div class="cta-row">
+                  <a href="article.html?id=art-1" class="btn btn-primary">Read story</a>
+                  <button class="btn btn-secondary" id="newsletter-button">Subscribe</button>
+                </div>
+              </div>
+              <div class="hero-media">
+                <img id="hero-image" src="https://images.unsplash.com/photo-1497366754035-f200968a6e72?auto=format&fit=crop&w=1200&q=80" alt="Editorial feature" />
+              </div>
+            </article>
+          </div>
+        </section>
+
+        <section class="mid-strip">
+          <div class="container strip-grid">
+            <div class="strip-item glass-panel">
+              <span class="mini-label">Trending</span>
+              <strong>AI-assisted journalism</strong>
+            </div>
+            <div class="strip-item glass-panel">
+              <span class="mini-label">People</span>
+              <strong>What leadership looks like in a hybrid world</strong>
+            </div>
+            <div class="strip-item glass-panel">
+              <span class="mini-label">Culture</span>
+              <strong>Why premium magazines still matter</strong>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="container section-grid">
+            <div class="main-column">
+              <div class="section-header">
+                <div>
+                  <p class="eyebrow accent-text">Latest stories</p>
+                  <h3>Fresh reporting</h3>
+                </div>
+                <a href="magazine.html">View all</a>
+              </div>
+              <div id="latest-stories" class="story-list"></div>
+            </div>
+
+            <aside class="sidebar-column">
+              <div class="glass-panel widget">
+                <p class="eyebrow accent-text">Trending</p>
+                <ul id="trending-list" class="list-stack"></ul>
+              </div>
+
+              <div class="glass-panel widget">
+                <p class="eyebrow accent-text">Editor’s picks</p>
+                <ul id="editor-picks" class="list-stack"></ul>
+              </div>
+
+              <div class="glass-panel widget ad-widget">
+                <p class="eyebrow accent-text">Sponsored</p>
+                <div class="ad-box">
+                  <span>KP X Luxury</span>
+                  <p>Culture, living, and thoughtful design.</p>
+                </div>
+              </div>
+            </aside>
+          </div>
+        </section>
+
+        <section class="content-section alt-bg">
+          <div class="container">
+            <div class="section-header">
+              <div>
+                <p class="eyebrow accent-text">Featured video</p>
+                <h3>Visual storytelling</h3>
+              </div>
+              <a href="video.html">Watch more</a>
+            </div>
+            <div id="featured-video" class="video-grid"></div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <div class="container">
+            <div class="section-header">
+              <div>
+                <p class="eyebrow accent-text">Sections</p>
+                <h3>Explore by focus</h3>
+              </div>
+            </div>
+            <div id="category-cards" class="category-grid"></div>
+          </div>
+        </section>
+
+        <section class="newsletter-block">
+          <div class="container newsletter-panel glass-panel">
+            <div>
+              <p class="eyebrow accent-text">Newsletter</p>
+              <h3>Weekly intelligence from KP MAGAZINES</h3>
+            </div>
+            <form id="newsletter-form" class="newsletter-form">
+              <input type="email" id="newsletter-email" placeholder="Your email address" required />
+              <button type="submit" class="btn btn-primary">Join free</button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <div class="brand-block small-brand">
+              <span class="brand-mark">KP</span>
+              <div>
+                <p class="eyebrow">Monthly Journal</p>
+                <h3 class="brand-name">MAGAZINES</h3>
+              </div>
+            </div>
+            <p>Premium editorial stories on the people, ideas, and trends shaping modern culture.</p>
+          </div>
+          <div>
+            <h4>Sections</h4>
+            <ul>
+              <li><a href="categories.html">Categories</a></li>
+              <li><a href="magazine.html">Magazine</a></li>
+              <li><a href="video.html">Videos</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Company</h4>
+            <ul>
+              <li><a href="about.html">About</a></li>
+              <li><a href="contact.html">Contact</a></li>
+              <li><a href="subscribe.html">Membership</a></li>
+            </ul>
+          </div>
+          <div>
+            <h4>Legal</h4>
+            <ul>
+              <li><a href="privacy.html">Privacy</a></li>
+              <li><a href="terms.html">Terms</a></li>
+            </ul>
+          </div>
+        </div>
+        <div class="container footer-bottom">
+          <p>© 2026 KP MAGAZINES. All rights reserved.</p>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

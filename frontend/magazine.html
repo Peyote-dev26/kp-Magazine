@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Magazine | KP MAGAZINES</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <div class="brand-block">
+            <span class="brand-mark">KP</span>
+            <div>
+              <p class="eyebrow">Monthly Journal</p>
+              <h1 class="brand-name">MAGAZINES</h1>
+            </div>
+          </div>
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="magazine.html" class="active">Magazine</a>
+            <a href="video.html">Video</a>
+            <a href="authors.html">Authors</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <div class="header-actions">
+            <a href="login.html" class="btn btn-primary">Login</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="page-shell">
+        <section class="container page-header">
+          <p class="eyebrow accent-text">Magazine</p>
+          <h2>All stories</h2>
+        </section>
+
+        <section class="container filter-panel glass-panel">
+          <form id="magazine-filters" class="filter-grid">
+            <div>
+              <label for="filter-category">Category</label>
+              <select id="filter-category"></select>
+            </div>
+            <div>
+              <label for="filter-sort">Sort</label>
+              <select id="filter-sort">
+                <option value="newest">Newest</option>
+                <option value="oldest">Oldest</option>
+                <option value="popular">Most popular</option>
+              </select>
+            </div>
+            <div>
+              <label for="filter-search">Search</label>
+              <input id="filter-search" type="search" placeholder="Search stories" />
+            </div>
+          </form>
+        </section>
+
+        <section class="container article-list-wrap">
+          <div id="magazine-list" class="story-list story-list-grid"></div>
+        </section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <div class="brand-block small-brand">
+              <span class="brand-mark">KP</span>
+              <div>
+                <p class="eyebrow">Monthly Journal</p>
+                <h3 class="brand-name">MAGAZINES</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

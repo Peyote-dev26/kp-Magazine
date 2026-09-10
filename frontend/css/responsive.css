@@ -1,0 +1,34 @@
+@media (max-width: 1199px) {
+  .strip-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 768px) {
+  .brand-name {
+    letter-spacing: 0.12em;
+  }
+
+  .hero-copy h2 {
+    font-size: clamp(2.1rem, 8vw, 3rem);
+  }
+
+  .story-card h4 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 0.8rem;
+  }
+
+  .brand-mark {
+    width: 38px;
+    height: 38px;
+  }
+
+  .topbar-inner {
+    gap: 0.5rem;
+  }
+}

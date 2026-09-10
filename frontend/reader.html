@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Reader Dashboard | KP MAGAZINES</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <div class="brand-block"><span class="brand-mark">KP</span><div><p class="eyebrow">Monthly Journal</p><h1 class="brand-name">MAGAZINES</h1></div></div>
+          <nav class="main-nav"><a href="index.html">Home</a><a href="magazine.html">Magazine</a><a href="video.html">Video</a><a href="contact.html">Contact</a></nav>
+          <button id="logout-button" class="btn btn-secondary">Log out</button>
+        </div>
+      </header>
+      <main class="page-shell">
+        <div class="container">
+          <section class="glass-panel" style="padding: 2rem;">
+            <p class="eyebrow accent-text">Reader dashboard</p>
+            <h2>Welcome, <span id="community-name">Reader</span></h2>
+            <p id="community-email" class="muted-text"></p>
+            <p>Your reader account is ready. Explore the latest stories and stay connected with KP MAGAZINES.</p>
+            <div class="cta-row"><a class="btn btn-primary" href="magazine.html">Read the magazine</a><a class="btn btn-secondary" href="contact.html">Contact the team</a></div>
+            <p class="eyebrow" style="margin-top: 1.5rem;">Account type: <span id="community-role">reader</span></p>
+          </section>
+        </div>
+      </main>
+    </div>
+    <script src="./js/api.js"></script>
+    <script src="./js/community.js"></script>
+    <script>loadCommunityDashboard('reader');</script>
+  </body>
+</html>

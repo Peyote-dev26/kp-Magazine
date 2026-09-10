@@ -1,0 +1,163 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>KP MAGAZINES Admin</title>
+    <link rel="stylesheet" href="../frontend/css/style.css" />
+    <link rel="stylesheet" href="../frontend/css/responsive.css" />
+    <style>
+      body { background: #07111d; }
+      .admin-shell { display: grid; grid-template-columns: 260px 1fr; min-height: 100vh; }
+      .admin-sidebar { background: rgba(9, 16, 26, 0.95); border-right: 1px solid rgba(143, 173, 255, 0.18); padding: 1.4rem 1rem; }
+      .sidebar-brand { margin-bottom: 2rem; }
+      .sidebar-section { margin-top: 1.2rem; }
+      .nav-link { display: block; padding: 0.75rem 0.8rem; border-radius: 10px; color: var(--muted); margin-bottom: 0.35rem; }
+      .nav-link.active, .nav-link:hover { background: rgba(95, 124, 255, 0.16); color: var(--text); }
+      .admin-main { padding: 2rem; }
+      .overview-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1rem; margin-bottom: 1.5rem; }
+      .metric-card { padding: 1.1rem; border-radius: 14px; background: rgba(17, 26, 41, 0.78); border: 1px solid var(--line); }
+      .metric-card h4 { margin: 0.3rem 0; font-size: 1.8rem; }
+      .chart-box { min-height: 220px; background: rgba(17, 26, 41, 0.78); border: 1px solid var(--line); border-radius: 14px; padding: 1rem; }
+      .table { width: 100%; border-collapse: collapse; }
+      .table th, .table td { text-align: left; padding: 0.9rem; border-bottom: 1px solid rgba(255,255,255,0.08); }
+      @media (max-width: 980px) { .admin-shell { grid-template-columns: 1fr; } .admin-sidebar { border-right: 0; border-bottom: 1px solid var(--line); } .overview-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); } }
+      @media (max-width: 560px) { .overview-grid { grid-template-columns: 1fr; } .admin-main { padding: 1rem; } }
+    </style>
+  </head>
+  <body>
+    <div class="admin-shell">
+      <aside class="admin-sidebar">
+        <div class="sidebar-brand">
+          <div class="brand-block">
+            <span class="brand-mark">KP</span>
+            <div>
+              <p class="eyebrow">Monthly Journal</p>
+              <h3 class="brand-name">MAGAZINES</h3>
+            </div>
+          </div>
+        </div>
+
+        <nav>
+          <div class="sidebar-section">
+            <p class="eyebrow accent-text">Dashboard</p>
+            <a class="nav-link active" href="index.html">Overview</a>
+            <a class="nav-link" href="articles.html">Articles</a>
+            <a class="nav-link" href="drafts.html">Drafts</a>
+            <a class="nav-link" href="categories.html">Categories</a>
+            <a class="nav-link" href="authors.html">Authors</a>
+            <a class="nav-link" href="videos.html">Videos</a>
+            <a class="nav-link" href="media.html">Media Library</a>
+          </div>
+          <div class="sidebar-section">
+            <p class="eyebrow accent-text">Business</p>
+            <a class="nav-link" href="newsletter.html">Newsletter</a>
+            <a class="nav-link" href="advertisements.html">Advertisements</a>
+            <a class="nav-link" href="subscriptions.html">Subscriptions</a>
+            <a class="nav-link" href="analytics.html">Analytics</a>
+          </div>
+          <div class="sidebar-section">
+            <p class="eyebrow accent-text">System</p>
+            <a class="nav-link" href="settings.html">Settings</a>
+            <a class="nav-link" href="audit-logs.html">Audit Logs</a>
+          </div>
+        </nav>
+      </aside>
+
+      <main class="admin-main">
+        <div class="section-header">
+          <div>
+            <p class="eyebrow accent-text">Overview</p>
+            <h2>Editorial dashboard</h2>
+          </div>
+        </div>
+
+        <section class="overview-grid" id="overview-grid"></section>
+
+        <section class="chart-box" style="margin-bottom: 1.5rem;">
+          <h3>Traffic overview</h3>
+          <div id="traffic-chart" style="height: 170px; border-radius: 12px; background: linear-gradient(135deg, rgba(95,124,255,0.12), rgba(247,200,111,0.08)); display:flex; align-items:end; gap:10px; padding:1rem;">
+            <span style="flex:1; background: rgba(95,124,255,0.9); height: 35%; border-radius:8px 8px 0 0;"></span>
+            <span style="flex:1; background: rgba(95,124,255,0.8); height: 52%; border-radius:8px 8px 0 0;"></span>
+            <span style="flex:1; background: rgba(95,124,255,0.7); height: 77%; border-radius:8px 8px 0 0;"></span>
+            <span style="flex:1; background: rgba(247,200,111,0.8); height: 65%; border-radius:8px 8px 0 0;"></span>
+            <span style="flex:1; background: rgba(95,124,255,0.9); height: 82%; border-radius:8px 8px 0 0;"></span>
+            <span style="flex:1; background: rgba(247,200,111,0.8); height: 90%; border-radius:8px 8px 0 0;"></span>
+          </div>
+        </section>
+
+        <div style="display:grid; grid-template-columns: 1.5fr 1fr; gap:1.2rem;">
+          <section class="chart-box">
+            <h3>Recent activity</h3>
+            <table class="table">
+              <thead>
+                <tr><th>Title</th><th>Type</th><th>Status</th></tr>
+              </thead>
+              <tbody id="activity-table"></tbody>
+            </table>
+          </section>
+
+          <section class="chart-box">
+            <h3>Quick actions</h3>
+            <div style="display:grid; gap:0.8rem; margin-top: 1rem;">
+              <a class="btn btn-primary" href="add-article.html">New article</a>
+              <a class="btn btn-secondary" href="newsletter.html">View subscribers</a>
+              <a class="btn btn-secondary" href="analytics.html">Analytics</a>
+            </div>
+          </section>
+        </div>
+      </main>
+    </div>
+
+    <script src="../frontend/js/api.js"></script>
+    <script>
+      async function loadOverview() {
+        const token = getAuthToken();
+        if (!token) {
+          window.location.href = 'login.html';
+          return;
+        }
+
+        try {
+          const response = await apiRequest('/admin/overview', {
+            method: 'GET',
+            headers: {...getHeadersWithAuth(), ...(token ? { Authorization: `Bearer ${token}` } : {})},
+          });
+          const overview = response.overview;
+          const grid = document.getElementById('overview-grid');
+          const metrics = [
+            ['Total articles', overview.totalArticles],
+            ['Published', overview.publishedArticles],
+            ['Drafts', overview.drafts],
+            ['Subscribers', overview.subscribers],
+            ['Comments', overview.comments],
+            ['Article views', overview.articleViews],
+            ['Video views', overview.videoViews],
+            ['Users', overview.users],
+          ];
+
+          grid.innerHTML = metrics.map(([label, value]) => `
+            <div class="metric-card">
+              <p class="eyebrow accent-text">${label}</p>
+              <h4>${value}</h4>
+            </div>
+          `).join('');
+
+          const tableBody = document.getElementById('activity-table');
+          const recent = response.recentArticles || [];
+          tableBody.innerHTML = recent.slice(0, 5).map((article) => `
+            <tr>
+              <td>${article.title}</td>
+              <td>Article</td>
+              <td>${article.status}</td>
+            </tr>
+          `).join('');
+        } catch (error) {
+          document.getElementById('overview-grid').innerHTML = `<div class="metric-card"><p class="eyebrow accent-text">Access</p><h4>${error.message}</h4><a class="btn btn-secondary" href="login.html">Return to login</a></div>`;
+          console.error(error);
+        }
+      }
+      loadOverview();
+    </script>
+  </body>
+</html>

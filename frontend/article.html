@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Article | KP MAGAZINES</title>
+    <meta name="description" content="Read premium editorial stories and analysis from KP MAGAZINES." />
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <div class="brand-block">
+            <span class="brand-mark">KP</span>
+            <div>
+              <p class="eyebrow">Monthly Journal</p>
+              <h1 class="brand-name">MAGAZINES</h1>
+            </div>
+          </div>
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="magazine.html" class="active">Magazine</a>
+            <a href="video.html">Video</a>
+            <a href="authors.html">Authors</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <div class="header-actions">
+            <a href="login.html" class="btn btn-primary">Login</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="article-page">
+        <article class="container article-layout">
+          <header class="article-header glass-panel">
+            <p class="eyebrow accent-text" id="article-category">Feature</p>
+            <h1 id="article-title">Loading article...</h1>
+            <p class="subtitle" id="article-subtitle"></p>
+            <div class="article-meta">
+              <span id="article-author"></span>
+              <span id="article-date"></span>
+              <span id="article-read-time"></span>
+            </div>
+          </header>
+
+          <div class="article-hero">
+            <img id="article-image" src="" alt="Article hero" />
+          </div>
+
+          <div class="article-content-grid">
+            <div class="article-body glass-panel" id="article-body"></div>
+            <aside class="article-aside">
+              <div class="glass-panel widget">
+                <p class="eyebrow accent-text">Share</p>
+                <div class="share-buttons">
+                  <button>Copy link</button>
+                  <button>Share</button>
+                </div>
+              </div>
+              <div class="glass-panel widget">
+                <p class="eyebrow accent-text">Related</p>
+                <ul id="related-list" class="list-stack"></ul>
+              </div>
+            </aside>
+          </div>
+        </article>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <div class="brand-block small-brand">
+              <span class="brand-mark">KP</span>
+              <div>
+                <p class="eyebrow">Monthly Journal</p>
+                <h3 class="brand-name">MAGAZINES</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+
+    <script src="./js/api.js"></script>
+    <script src="./js/main.js"></script>
+  </body>
+</html>

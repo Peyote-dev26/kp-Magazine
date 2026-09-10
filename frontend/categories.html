@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Categories | KP MAGAZINES</title>
+    <link rel="stylesheet" href="./css/style.css" />
+    <link rel="stylesheet" href="./css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <header class="topbar">
+        <div class="container topbar-inner">
+          <div class="brand-block">
+            <span class="brand-mark">KP</span>
+            <div>
+              <p class="eyebrow">Monthly Journal</p>
+              <h1 class="brand-name">MAGAZINES</h1>
+            </div>
+          </div>
+          <nav class="main-nav" aria-label="Main navigation">
+            <a href="index.html">Home</a>
+            <a href="magazine.html">Magazine</a>
+            <a href="video.html">Video</a>
+            <a href="authors.html">Authors</a>
+            <a href="about.html">About</a>
+            <a href="contact.html">Contact</a>
+          </nav>
+          <div class="header-actions">
+            <a href="login.html" class="btn btn-primary">Login</a>
+          </div>
+        </div>
+      </header>
+
+      <main class="page-shell">
+        <section class="container page-header">
+          <p class="eyebrow accent-text">Topics</p>
+          <h2>Explore by category</h2>
+        </section>
+        <section class="container category-grid" id="all-categories"></section>
+      </main>
+
+      <footer class="site-footer">
+        <div class="container footer-grid">
+          <div>
+            <div class="brand-block small-brand">
+              <span class="brand-mark">KP</span>
+              <div>
+                <p class="eyebrow">Monthly Journal</p>
+                <h3 class="brand-name">MAGAZINES</h3>
+              </div>
+            </div>
+          </div>
+        </div>
+      </footer>
+    </div>
+    <script src="./js/api.js"></script>
+    <script>
+      (async function () {
+        const data = await apiRequest('/categories');
+        const list = document.getElementById('all-categories');
+        (data.categories || []).forEach((category) => {
+          const card = document.createElement('article');
+          card.className = 'category-card';
+          card.innerHTML = `
+            <img src="https://images.unsplash.com/photo-1516321165247-4aa89a48be28?auto=format&fit=crop&w=900&q=80" alt="${category.name}" />
+            <div class="card-body">
+              <p class="eyebrow accent-text">${category.slug}</p>
+              <h4><a href="category.html?id=${category.id}">${category.name}</a></h4>
+              <p>${category.description || ''}</p>
+            </div>
+          `;
+          list.appendChild(card);
+        });
+      })();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Admin Login | KP MAGAZINES</title>
+    <link rel="stylesheet" href="../frontend/css/style.css" />
+    <link rel="stylesheet" href="../frontend/css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell auth-shell">
+      <div class="container auth-layout">
+        <div class="auth-panel glass-panel">
+          <p class="eyebrow accent-text">Admin access</p>
+          <h2>Newsroom login</h2>
+          <form id="admin-login-form" class="form-stack">
+            <label>
+              Email
+              <input type="email" id="admin-email" value="admin@kpmagazines.com" required />
+            </label>
+            <label>
+              Password
+              <input type="password" id="admin-password" value="kpopen123" required />
+            </label>
+            <button type="submit" class="btn btn-primary">Enter dashboard</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="../frontend/js/api.js"></script>
+    <script>
+      document.getElementById('admin-login-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        const email = document.getElementById('admin-email').value;
+        const password = document.getElementById('admin-password').value;
+
+        try {
+          const data = await apiRequest('/auth/login', {
+            method: 'POST',
+            body: { email, password },
+            headers: { 'Content-Type': 'application/json' },
+          });
+          setAuthToken(data.token);
+          window.location.href = 'index.html';
+        } catch (error) {
+          alert(error.message);
+        }
+      });
+    </script>
+  </body>
+</html>

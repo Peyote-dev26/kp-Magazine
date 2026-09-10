@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Add Article | KP MAGAZINES Admin</title>
+    <link rel="stylesheet" href="../frontend/css/style.css" />
+    <link rel="stylesheet" href="../frontend/css/responsive.css" />
+  </head>
+  <body>
+    <div class="site-shell">
+      <div class="container auth-layout">
+        <div class="auth-panel glass-panel">
+          <p class="eyebrow accent-text">CMS</p>
+          <h2>Create article</h2>
+          <form id="article-form" class="form-stack">
+            <label>Title<input type="text" id="title" required /></label>
+            <label>Subtitle<input type="text" id="subtitle" /></label>
+            <label>Excerpt<textarea id="excerpt" rows="3"></textarea></label>
+            <label>Cover image URL<input type="url" id="coverImage" /></label>
+            <label>Body<textarea id="body" rows="8" required></textarea></label>
+            <label>Status<select id="status"><option value="draft">Draft</option><option value="published">Published</option></select></label>
+            <button class="btn btn-primary" type="submit">Save article</button>
+          </form>
+        </div>
+      </div>
+    </div>
+    <script src="../frontend/js/api.js"></script>
+    <script>
+      document.getElementById('article-form').addEventListener('submit', async (event) => {
+        event.preventDefault();
+        try {
+          await apiRequest('/articles', {
+            method: 'POST',
+            headers: getHeadersWithAuth(),
+            body: {
+              title: document.getElementById('title').value,
+              subtitle: document.getElementById('subtitle').value,
+              excerpt: document.getElementById('excerpt').value,
+              coverImage: document.getElementById('coverImage').value,
+              body: document.getElementById('body').value,
+              status: document.getElementById('status').value,
+              categoryId: 'cat-1',
+              authorId: 'auth-1',
+            },
+          });
+          alert('Article saved.');
+          event.target.reset();
+        } catch (error) {
+          alert(error.message);
+        }
+      });
+    </script>
+  </body>
+</html>
