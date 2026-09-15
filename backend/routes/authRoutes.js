@@ -181,5 +181,10 @@ router.get('/me', authenticateToken, async (req, res) => {
     },
   });
 });
-
+router.get('/test', (req, res) => {
+  res.json({
+    ok: true,
+    message: 'Auth routes are working'
+  });
+});
 module.exports = router;
